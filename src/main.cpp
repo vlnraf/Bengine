@@ -9,7 +9,7 @@ int main (int argv, char *args[]){
     while(game->run()){
         game->eventHandler();
         game->update();
-        game->renderer();
+        game->draw();
     }
 
     game->destroy();

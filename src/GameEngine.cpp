@@ -1,4 +1,8 @@
 #include "GameEngine.hpp"
+#include "TextureManager.hpp"
+
+SDL_Texture *texture;
+SDL_Rect drect;
 
 GameEngine::GameEngine(){}
 GameEngine::~GameEngine(){}
@@ -11,6 +15,7 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
 
     SDL_Init(SDL_INIT_EVERYTHING);
     window = SDL_CreateWindow("SDL Tests", x, y, w, h, flags);
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     isRunning = true;
 
@@ -18,6 +23,9 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
         std::cout << "Error creating the window" << std::endl;
         isRunning = false;
     }
+
+    SDL_Color color = {255,0,0,255};
+    texture = TextureManager::rectTexture(renderer, drect, color);
 };
 
 void GameEngine::eventHandler(){
@@ -33,19 +41,31 @@ void GameEngine::eventHandler(){
     }
 };
 
-void GameEngine::renderer(){
-
+void GameEngine::update(){
+    drect.h=100;
+    drect.w=20;
+    drect.x=10;
+    drect.y++;
 };
 
-void GameEngine::update(){
+void GameEngine::draw(){
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0 );
+    SDL_RenderClear(renderer);
+
+    SDL_RenderCopy(renderer, texture, NULL, &drect);
+
+    SDL_RenderPresent(renderer);
+};
+
+void GameEngine::destroy(){
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+    SDL_Quit();
+    window = nullptr;
+    renderer = nullptr;
+    std::cout << "Memory cleaned" << std::endl;
 };
 
 bool GameEngine::run(){
     return isRunning;
 }
-
-void GameEngine::destroy(){
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    std::cout << "Memory cleaned" << std::endl;
-};

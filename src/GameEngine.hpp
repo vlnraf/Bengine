@@ -10,7 +10,7 @@ class GameEngine{
 
         void initialize(std::string title, int x, int y, int w, int h, bool fullscreen);
         void eventHandler();
-        void renderer();
+        void draw();
         void update();
         void destroy();
 
@@ -18,6 +18,7 @@ class GameEngine{
 
     private:
         SDL_Window *window;
+        SDL_Renderer *renderer;
         bool isRunning;
 
 };
