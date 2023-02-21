@@ -1,18 +1,24 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 #include <iostream>
+#include <SDL2/SDL.h>
 
 class GameEngine{
     public:
         GameEngine();
         ~GameEngine();
 
-        void initialize(std::string p);
-        void run();
+        void initialize(std::string title, int x, int y, int w, int h, bool fullscreen);
+        void eventHandler();
+        void renderer();
+        void update();
+        void destroy();
+
+        bool run();
 
     private:
-    int count = 0;
-    std::string message;
+        SDL_Window *window;
+        bool isRunning;
 
 };
 #endif
