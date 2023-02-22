@@ -8,13 +8,12 @@ class Player2 : GameObject{
     public:
         using GameObject::GameObject;
 
-        void update() override;
+        void update(float dt) override;
         void draw() override;
-        void setDirection(int d);
+        void setVelocity(int v);
 
     private:
-    int vel = 20;
-    int dir;
+        int vel = 5;
 };
 
 #endif

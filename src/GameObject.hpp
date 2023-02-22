@@ -4,10 +4,10 @@
 
 class GameObject{
     public:
-        GameObject(SDL_Renderer *renderer, std::string texture, int x, int y, int width, int height);
+        GameObject(SDL_Renderer *rend, std::string texture, int x, int y, int width, int height);
         ~GameObject();
 
-        virtual void update();
+        virtual void update(float dt);
         virtual void draw();
 
     protected:

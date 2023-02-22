@@ -7,6 +7,8 @@ const int WIDTH = 800, HEIGHT = 600;
 
 class GameEngine{
     public:
+        float dt = 0;
+
         GameEngine();
         ~GameEngine();
 

@@ -1,15 +1,15 @@
 #include "Player2.hpp"
 
 
-void Player2::update(){
-    ypos += vel * dir;
+void Player2::update(float dt){
+    ypos += vel * dt;
 
     if(ypos < 0){ // Prevent the player to go over the top screen
         ypos = 0;
     }
 
-    if(ypos > HEIGHT-100){
-        ypos = HEIGHT-100;
+    if(ypos > HEIGHT-drect.h){
+        ypos = HEIGHT-drect.h;
     }
 
     drect.x = xpos;
@@ -20,6 +20,6 @@ void Player2::draw(){
     GameObject::draw();
 }
 
-void Player2::setDirection(int d){
-    dir = d;
+void Player2::setVelocity(int v){
+    vel = v;
 }

@@ -4,7 +4,7 @@
 //const int WIDTH = 800, HEIGHT = 600;
 
 int main (int argv, char *args[]){
-    const int FPS = 30;
+    const int FPS = 60;
     const int frameDelay = 1000 / FPS;
 
     Uint32 frameStart;
@@ -24,6 +24,8 @@ int main (int argv, char *args[]){
         frameTime = SDL_GetTicks() - frameStart;
 
         if(frameDelay > frameTime){
+            //std::cout << frameDelay - frameTime << std::endl;
+            game->dt = (float) (frameDelay - frameTime) / 10;
             SDL_Delay(frameDelay - frameTime);
         }
     }

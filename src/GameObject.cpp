@@ -21,7 +21,7 @@ GameObject::GameObject(SDL_Renderer *rend, std::string texture, int x, int y, in
     drect.y=ypos;
 }
 
-void GameObject::update(){
+void GameObject::update(float dt){
 }
 
 void GameObject::draw(){
