@@ -1,16 +1,16 @@
-#include "Player1.hpp"
+#include "Player2.hpp"
 
 
-void Player1::update(){
+void Player2::update(){
     ypos += vel * dir;
     drect.x = xpos;
     drect.y = ypos;
 }
 
-void Player1::draw(){
+void Player2::draw(){
     GameObject::draw();
 }
 
-void Player1::setDirection(int d){
+void Player2::setDirection(int d){
     dir = d;
 }

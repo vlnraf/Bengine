@@ -2,12 +2,13 @@
 #include "TextureManager.hpp"
 #include "GameObject.hpp"
 #include "Player1.hpp"
+#include "Player2.hpp"
 
 SDL_Rect drect;
 GameObject *ball;
 //GameObject *player;
 Player1 *player;
-GameObject *player2;
+Player2 *player2;
 
 
 GameEngine::GameEngine(){}
@@ -31,9 +32,9 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
     }
 
     //player = new GameObject(renderer, "assets/p1texture.png", 0, 0, 20, 100);
-    player = new Player1(renderer, "assets/p1texture.png", 0, 0, 20, 100);
-    player2 = new GameObject(renderer, "assets/p1texture.png", WIDTH-20, 0, 20, 100);
-    ball = new GameObject(renderer, "assets/p1texture.png", WIDTH/2, HEIGHT/2, 10, 10);
+    player = new Player1(renderer, "assets/p1texture.png", 10, HEIGHT/2 - 50, 20, 100);
+    player2 = new Player2(renderer, "assets/p1texture.png", (WIDTH-20)-10, HEIGHT/2 - 50, 20, 100);
+    ball = new GameObject(renderer, "assets/p1texture.png", WIDTH/2, HEIGHT/2 - 10, 10, 10);
 };
 
 void GameEngine::eventHandler(){
@@ -44,11 +45,32 @@ void GameEngine::eventHandler(){
             isRunning = false;
             break;
 
-        case SDL_KEYDOWN:
-            player->event(ev);
-    
         default:
             break;
+    }
+
+    const Uint8 * keystates = SDL_GetKeyboardState(NULL);
+    
+    if(keystates[SDL_SCANCODE_ESCAPE]){
+        isRunning = false;
+    }
+
+    player->setDirection(0);
+    if(keystates[SDL_SCANCODE_W]){
+        player->setDirection(-1);
+    }
+
+    if(keystates[SDL_SCANCODE_S]){
+        player->setDirection(1);
+    }
+
+    player2->setDirection(0);
+    if(keystates[SDL_SCANCODE_I]){
+        player2->setDirection(-1);
+    }
+
+    if(keystates[SDL_SCANCODE_K]){
+        player2->setDirection(1);
     }
 };
 
