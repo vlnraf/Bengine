@@ -8,7 +8,7 @@ EXECUTABLE := main
 
 all: $(BIN)/pong
 
-$(BIN)/pong: $(SRC)/main.cpp $(SRC)/GameEngine.cpp $(SRC)/TextureManager.cpp $(SRC)/GameObject.cpp
+$(BIN)/pong: $(SRC)/*.cpp
 	$(CXX) $(CXXFLAGS) -I include -L lib $^ -o $@ $(LDFLAGS)
 
 #all: 

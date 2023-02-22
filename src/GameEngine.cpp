@@ -1,9 +1,12 @@
 #include "GameEngine.hpp"
 #include "TextureManager.hpp"
 #include "GameObject.hpp"
+#include "Player1.hpp"
 
 SDL_Rect drect;
-GameObject *player;
+GameObject *ball;
+//GameObject *player;
+Player1 *player;
 GameObject *player2;
 
 
@@ -27,8 +30,10 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
         isRunning = false;
     }
 
-    player = new GameObject(renderer, "assets/p1texture.png", 0, 0);
-    player2 = new GameObject(renderer, "assets/p1texture.png", WIDTH-20, 0);
+    //player = new GameObject(renderer, "assets/p1texture.png", 0, 0, 20, 100);
+    player = new Player1(renderer, "assets/p1texture.png", 0, 0, 20, 100);
+    player2 = new GameObject(renderer, "assets/p1texture.png", WIDTH-20, 0, 20, 100);
+    ball = new GameObject(renderer, "assets/p1texture.png", WIDTH/2, HEIGHT/2, 10, 10);
 };
 
 void GameEngine::eventHandler(){
@@ -38,6 +43,9 @@ void GameEngine::eventHandler(){
         case SDL_QUIT:
             isRunning = false;
             break;
+
+        case SDL_KEYDOWN:
+            player->event(ev);
     
         default:
             break;
@@ -55,6 +63,7 @@ void GameEngine::draw(){
 
     player->draw();
     player2->draw();
+    ball->draw();
 
     SDL_RenderPresent(renderer);
 };

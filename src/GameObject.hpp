@@ -4,16 +4,17 @@
 
 class GameObject{
     public:
-        GameObject(SDL_Renderer *renderer, std::string texture, int x, int y);
+        GameObject(SDL_Renderer *renderer, std::string texture, int x, int y, int width, int height);
         ~GameObject();
 
-        void update();
-        void draw();
+        virtual void update();
+        virtual void draw();
 
-    private:
-    int xpos, ypos;
-    SDL_Rect drect, srect;
+    protected:
     SDL_Texture *objTexture;
     SDL_Renderer *renderer;
+    int xpos, ypos, w, h;
+    SDL_Rect drect, srect;
+
 };
 #endif
