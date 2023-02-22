@@ -1,8 +1,11 @@
 #include "GameEngine.hpp"
 #include "TextureManager.hpp"
+#include "GameObject.hpp"
 
-SDL_Texture *texture;
 SDL_Rect drect;
+GameObject *player;
+GameObject *player2;
+
 
 GameEngine::GameEngine(){}
 GameEngine::~GameEngine(){}
@@ -24,8 +27,8 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
         isRunning = false;
     }
 
-    SDL_Color color = {255,0,0,255};
-    texture = TextureManager::rectTexture(renderer, drect, color);
+    player = new GameObject(renderer, "assets/p1texture.png", 0, 0);
+    player2 = new GameObject(renderer, "assets/p1texture.png", WIDTH-20, 0);
 };
 
 void GameEngine::eventHandler(){
@@ -42,17 +45,16 @@ void GameEngine::eventHandler(){
 };
 
 void GameEngine::update(){
-    drect.h=100;
-    drect.w=20;
-    drect.x=10;
-    drect.y++;
+    player->update();
+    player2->update();
 };
 
 void GameEngine::draw(){
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0 );
     SDL_RenderClear(renderer);
 
-    SDL_RenderCopy(renderer, texture, NULL, &drect);
+    player->draw();
+    player2->draw();
 
     SDL_RenderPresent(renderer);
 };
