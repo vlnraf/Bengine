@@ -1,16 +1,19 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
+#include "GameEngine.hpp"
 
 class GameObject{
     public:
-        GameObject();
+        GameObject(SDL_Renderer *renderer, std::string texture, int x, int y);
         ~GameObject();
 
-        void initialize();
         void update();
         void draw();
 
     private:
     int xpos, ypos;
+    SDL_Rect drect, srect;
+    SDL_Texture *objTexture;
+    SDL_Renderer *renderer;
 };
 #endif
