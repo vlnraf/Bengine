@@ -2,12 +2,11 @@
 
 
 void Player1::event(SDL_Event e){
-    std::cout<< e.key.keysym.sym << std::endl;
     if(e.key.keysym.sym == SDLK_s){
-        ypos ++;
+        ypos++;
     }
     if(e.key.keysym.sym == SDLK_w){
-        ypos ++;
+        ypos--;
     }
 }
 
