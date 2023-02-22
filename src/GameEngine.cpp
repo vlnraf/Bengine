@@ -51,11 +51,8 @@ void GameEngine::eventHandler(){
 
     const Uint8 * keystates = SDL_GetKeyboardState(NULL);
     
-    if(keystates[SDL_SCANCODE_ESCAPE]){
-        isRunning = false;
-    }
-
     player->setDirection(0);
+
     if(keystates[SDL_SCANCODE_W]){
         player->setDirection(-1);
     }
