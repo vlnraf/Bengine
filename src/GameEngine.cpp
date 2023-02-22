@@ -22,7 +22,7 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
 
     SDL_Init(SDL_INIT_EVERYTHING);
     window = SDL_CreateWindow("SDL Tests", x, y, w, h, flags);
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED && SDL_RENDERER_PRESENTVSYNC);
 
     isRunning = true;
 
@@ -39,36 +39,40 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
 
 void GameEngine::eventHandler(){
     SDL_Event ev;
-    SDL_PollEvent(&ev);
-    switch (ev.type){
-        case SDL_QUIT:
-            isRunning = false;
-            break;
+    //SDL_PollEvent(&ev);
+    while(SDL_PollEvent(&ev))
+    {
+        switch (ev.type){
+            case SDL_QUIT:
+                isRunning = false;
+                break;
 
-        default:
-            break;
+            default:
+                break;
+        }
+
+        const Uint8 * keystates = SDL_GetKeyboardState(NULL);
+        
+        player->setDirection(0);
+
+        if(keystates[SDL_SCANCODE_W]){
+            player->setDirection(-1);
+        }
+
+        if(keystates[SDL_SCANCODE_S]){
+            player->setDirection(1);
+        }
+
+        player2->setDirection(0);
+        if(keystates[SDL_SCANCODE_I]){
+            player2->setDirection(-1);
+        }
+
+        if(keystates[SDL_SCANCODE_K]){
+            player2->setDirection(1);
+        }
     }
 
-    const Uint8 * keystates = SDL_GetKeyboardState(NULL);
-    
-    player->setDirection(0);
-
-    if(keystates[SDL_SCANCODE_W]){
-        player->setDirection(-1);
-    }
-
-    if(keystates[SDL_SCANCODE_S]){
-        player->setDirection(1);
-    }
-
-    player2->setDirection(0);
-    if(keystates[SDL_SCANCODE_I]){
-        player2->setDirection(-1);
-    }
-
-    if(keystates[SDL_SCANCODE_K]){
-        player2->setDirection(1);
-    }
 };
 
 void GameEngine::update(){
