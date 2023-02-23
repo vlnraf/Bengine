@@ -6,20 +6,22 @@ class BoxCollider2D{
         BoxCollider2D();
         ~BoxCollider2D();
 
-        void updateCollider(int bleft, int btop, int bright, int bbot);
+        bool updateCollider(int bleft, int btop, int bright, int bbot);
 
         int getBoxLeft();
         int getBoxRigth();
         int getBoxTop();
         int getBoxBottom();
 
+        void setCollision(int value);
         //void setBoxLeft(int value);
         //void setBoxRigth(int value);
         //void setBoxTop(int value);
         //void setBoxBottom(int value);
 
     private:
-        int boxLeft, boxRight, boxTop, boxBottom;
+        float boxLeft, boxRight, boxTop, boxBottom;
+        bool collided;
 };
 
 #endif

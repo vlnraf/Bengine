@@ -5,9 +5,11 @@
 #include "Player2.hpp"
 #include "Ball.hpp"
 #include "BoxCollider2d.hpp"
+#include "CollisionManager.hpp"
 
 //SDL_Rect drect;
 //GameObject *player;
+CollisionManager *cm;
 Player1 *player;
 Player2 *player2;
 Ball *ball;
@@ -39,11 +41,13 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
     player2 = new Player2(renderer, "assets/p1texture.png", (WIDTH-20)-10, HEIGHT/2 - 50, 20, 100);
     ball = new Ball(renderer, "assets/p1texture.png", WIDTH/2 - 5, HEIGHT/2 - 5, 10, 10);
 
-    ball->addCollider();
-    player2->addCollider();
     player->addCollider();
-    //CollisionManager *c = new CollisionManager();
-    //c->addObject(player);
+    player2->addCollider();
+    ball->addCollider();
+    cm = new CollisionManager(WIDTH, HEIGHT);
+    cm->pushCollider(player->c);
+    cm->pushCollider(player2->c);
+    cm->pushCollider(ball->c);
 };
 
 void GameEngine::eventHandler(){
@@ -88,6 +92,7 @@ void GameEngine::update(){
     player->update(dt);
     player2->update(dt);
     ball->update(dt);
+    cm->checkCollision();
 };
 
 void GameEngine::draw(){

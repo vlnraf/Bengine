@@ -5,6 +5,8 @@
 
 class GameObject{
     public:
+        BoxCollider2D *c; //In the Future i try to implement an ECS so i can use different colliders and in general different components
+
         GameObject(SDL_Renderer *rend, std::string texture, int x, int y, int width, int height);
         ~GameObject();
 
@@ -13,8 +15,8 @@ class GameObject{
         virtual void addCollider();
 
     protected:
-    int xpos, ypos, w, h;
-    BoxCollider2D *c; //In the Future i try to implement an ECS so i can use different colliders and in general different components
+    float xpos, ypos, w, h;
+    bool collided;
     SDL_Texture *objTexture;
     SDL_Renderer *renderer;
     SDL_Rect drect, srect;

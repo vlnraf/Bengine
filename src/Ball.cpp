@@ -2,25 +2,29 @@
 #include <time.h>
 #include <random>
 
-#define SPEED_BALL 3.0f
 
 Ball::Ball(SDL_Renderer *renderer, std::string texture, int x, int y, int width, int height) : GameObject(renderer, texture, x, y, width, height){
     initDirection();
 }
 
 void Ball::update(float dt){
-    GameObject::update(dt);
     xpos += xvel * dt;
     ypos += yvel * dt;
-    //std::cout<<c->getBoxBottom()<< " "<< c->getBoxLeft() << " "<< c->getBoxRigth() << " "<< c->getBoxTop() << std::endl;
-
-    checkBorders();
-
-    drect.x = xpos;
-    drect.y = ypos;
+    GameObject::update(dt);
+    
+   if(collided){
+        //std::cout<<"collision"<<std::endl;
+        xvel = 0;
+        yvel = 0;
+        //xvel = -xvel;
+        //yvel = -yvel;
+        c->setCollision(false);
+   }
 }
 
 void Ball::draw(){
+    drect.x = xpos;
+    drect.y = ypos;
     GameObject::draw();
 }
 

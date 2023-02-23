@@ -9,3 +9,4 @@
 - [x] Player movements
 - [x] Ball movement
 - [ ] Add collision
+- [ ] I should calculate phisycs and rendering in different ways because now if the app goes at slow fps it does not calculate the collision correctly

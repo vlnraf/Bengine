@@ -1,12 +1,13 @@
 #ifndef BALL_H
 #define BALL_H
+#define SPEED_BALL 3.0f
 
 #include "GameObject.hpp"
 
-class Ball : GameObject {
+class Ball : public GameObject {
 
     public:
-        //using GameObject::GameObject;
+        using GameObject::GameObject;
         Ball(SDL_Renderer *renderer, std::string texture, int x, int y, int width, int height);
 
         void initDirection();

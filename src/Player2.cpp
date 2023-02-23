@@ -2,16 +2,18 @@
 
 
 void Player2::update(float dt){
-    GameObject::update(dt);
     ypos += vel * dt;
+    GameObject::update(dt);
 
-    if(ypos < 0){ // Prevent the player to go over the top screen
-        ypos = 0;
-    }
+    //if(c->getBoxTop() < 0){ // Prevent the player to go over the top screen
+    //    ypos = 0;
+    //    GameObject::update(dt);
+    //}
 
-    if(ypos > HEIGHT-drect.h){
-        ypos = HEIGHT-drect.h;
-    }
+    //if(c->getBoxBottom() > HEIGHT){ // Prevent the player to go over the bottom of the screen
+    //    ypos = HEIGHT-drect.h;
+    //    GameObject::update(dt);
+    //}
 
     drect.x = xpos;
     drect.y = ypos;

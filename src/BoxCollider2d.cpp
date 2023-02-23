@@ -1,22 +1,18 @@
 #include "BoxCollider2d.hpp"
 
-#include <iostream>
-
 BoxCollider2D::BoxCollider2D(){
-    //boxLeft = x;
-    //boxRight = x + width;
-    //boxTop = y;
-    //boxBottom = y + height;
-    boxLeft = 0;
-    boxRight = 0;
-    boxTop = 0;
-    boxBottom = 0;
+    collided = false;
 }
-void BoxCollider2D::updateCollider(int bleft, int btop, int bright, int bbot){
+
+BoxCollider2D::~BoxCollider2D(){}
+
+bool BoxCollider2D::updateCollider(int bleft, int btop, int bright, int bbot){
     boxLeft = bleft;
     boxRight = bright;
     boxTop = btop;
     boxBottom = bbot;
+
+    return collided;
 }
 
 int BoxCollider2D::getBoxLeft(){
@@ -30,6 +26,10 @@ int BoxCollider2D::getBoxTop(){
 }
 int BoxCollider2D::getBoxBottom(){
     return boxBottom;
+}
+
+void BoxCollider2D::setCollision(int value){
+    collided = value;
 }
 
 //void BoxCollider2D::setBoxLeft(int value){

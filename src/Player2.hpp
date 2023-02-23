@@ -3,7 +3,7 @@
 
 #include "GameObject.hpp"
 
-class Player2 : GameObject{
+class Player2 : public GameObject{
     
     public:
         using GameObject::GameObject;
@@ -14,7 +14,7 @@ class Player2 : GameObject{
         void setVelocity(int v);
 
     private:
-        int vel = 5;
+        float vel = 5;
 };
 
 #endif

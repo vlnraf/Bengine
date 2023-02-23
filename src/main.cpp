@@ -24,7 +24,6 @@ int main (int argv, char *args[]){
         frameTime = SDL_GetTicks() - frameStart;
 
         if(frameDelay > frameTime){
-            //std::cout << frameDelay - frameTime << std::endl;
             game->dt = (float) (frameDelay - frameTime) / 10;
             SDL_Delay(frameDelay - frameTime);
         }
