@@ -8,5 +8,5 @@
     The reason is that if i create a new gameObject Player2 i have to copy paste all the code in Player1 to Player2
 - [x] Player movements
 - [x] Ball movement
-- [ ] Add collision
+- [x] Add collision
 - [ ] I should calculate phisycs and rendering in different ways because now if the app goes at slow fps it does not calculate the collision correctly
