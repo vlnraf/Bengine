@@ -1,8 +1,8 @@
 #include "GameEngine.hpp"
 #include "TextureManager.hpp"
 #include "GameObject.hpp"
-#include "Player1.hpp"
-#include "Player2.hpp"
+#include "Player.hpp"
+//#include "Player2.hpp"
 #include "Ball.hpp"
 #include "BoxCollider2d.hpp"
 #include "CollisionManager.hpp"
@@ -10,8 +10,8 @@
 //SDL_Rect drect;
 //GameObject *player;
 CollisionManager *cm;
-Player1 *player;
-Player2 *player2;
+Player *player;
+Player *player2;
 Ball *ball;
 
 
@@ -37,9 +37,9 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
     }
 
     //player = new GameObject(renderer, "assets/p1texture.png", 0, 0, 20, 100);
-    player = new Player1(renderer, "assets/p1texture.png", 10, (HEIGHT /2) - 50, 10, 100);
-    player2 = new Player2(renderer, "assets/p1texture.png", (WIDTH-20)-10, HEIGHT/2 - 50, 10, 100);
-    ball = new Ball(renderer, "assets/p1texture.png", WIDTH/2 - 5, HEIGHT/2 - 5, 10, 10);
+    player = new Player(renderer, "assets/p1texture.png", 10, (HEIGHT /2) - 50, 10, 100);
+    player2 = new Player(renderer, "assets/p2texture.png", (WIDTH-20)-10, HEIGHT/2 - 50, 10, 100);
+    ball = new Ball(renderer, "assets/balltexture.png", WIDTH/2 - 5, HEIGHT/2 - 5, 10, 10);
 
     player->addCollider("player1");
     player2->addCollider("player2");

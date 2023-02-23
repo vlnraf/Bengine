@@ -1,9 +1,9 @@
-#ifndef PLAYER2_H
-#define PLAYER2_H
+#ifndef PLAYER1_H
+#define PLAYER1_H
 
 #include "GameObject.hpp"
 
-class Player2 : public GameObject{
+class Player : public GameObject{
     
     public:
         using GameObject::GameObject;
@@ -12,7 +12,7 @@ class Player2 : public GameObject{
         void draw() override;
         void addCollider(std::string name) override;
         void setVelocity(int v);
-
+    
     private:
         float vel = 5;
 };

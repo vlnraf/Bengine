@@ -30,15 +30,15 @@ void CollisionManager::checkObjectCollision(BoxCollider2D *a, BoxCollider2D *b){
 
 void CollisionManager::checkWallCollision(BoxCollider2D *c){
     if(c->getBoxTop() < 0){
-        c->setCollision(true, "screenwall");
+        c->setCollision(true, "screenwallt");
     }
     if(c->getBoxBottom() > screenH){
-        c->setCollision(true, "screenwall");
+        c->setCollision(true, "screenwallb");
     }
     if(c->getBoxLeft() < 0){
-        c->setCollision(true, "screenwall");
+        c->setCollision(true, "screenwalll");
     }
     if(c->getBoxRigth() > screenW){
-        c->setCollision(true, "screenwall");
+        c->setCollision(true, "screenwallr");
     }
 }

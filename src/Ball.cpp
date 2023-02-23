@@ -17,9 +17,13 @@ void Ball::update(float dt){
             xvel = -xvel;
             //yvel = 0;
         }
-        if(collName == "screenwall"){ // those are fixed objects that determine the screen walls
+        if(collName == "screenwallr" || collName == "screenwalll"){ // those are fixed objects that determine the screen walls
+            //TODO: give a point to the player
             xpos = WIDTH /2;
             ypos = HEIGHT /2;
+        }
+        if(collName == "screenwallt" || collName == "screenwallb"){ // those are fixed objects that determine the screen walls
+            yvel = -yvel;
         }
         c->setCollision(false, "");
     }
