@@ -10,3 +10,5 @@
 - [x] Ball movement
 - [x] Add collision
 - [ ] I should calculate phisycs and rendering in different ways because now if the app goes at slow fps it does not calculate the collision correctly
+- [ ] CollisionManager should return where the objects have intersected so the object can do different acionts based on that infomation 
+(example: if the ball hit the top part of the paddle increase also yvel so the ball start moving diagonal)
