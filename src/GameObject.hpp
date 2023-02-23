@@ -16,7 +16,7 @@ class GameObject{
 
     protected:
     float xpos, ypos, w, h;
-    bool collided;
+    //bool collided;
     SDL_Texture *objTexture;
     SDL_Renderer *renderer;
     SDL_Rect drect, srect;

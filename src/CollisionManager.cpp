@@ -1,5 +1,4 @@
 #include "CollisionManager.hpp"
-#include <iostream>
 
 CollisionManager::CollisionManager(int screenWidth, int screenHeight){
     screenW = screenWidth;

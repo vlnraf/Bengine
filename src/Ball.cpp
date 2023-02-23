@@ -8,18 +8,15 @@ Ball::Ball(SDL_Renderer *renderer, std::string texture, int x, int y, int width,
 }
 
 void Ball::update(float dt){
+    if(c->getCollision()){
+            xvel = -xvel;
+            //yvel = 0;
+            c->setCollision(false);
+    }
     xpos += xvel * dt;
     ypos += yvel * dt;
     GameObject::update(dt);
     
-   if(collided){
-        //std::cout<<"collision"<<std::endl;
-        xvel = 0;
-        yvel = 0;
-        //xvel = -xvel;
-        //yvel = -yvel;
-        c->setCollision(false);
-   }
 }
 
 void Ball::draw(){

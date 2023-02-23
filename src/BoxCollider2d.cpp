@@ -6,13 +6,11 @@ BoxCollider2D::BoxCollider2D(){
 
 BoxCollider2D::~BoxCollider2D(){}
 
-bool BoxCollider2D::updateCollider(int bleft, int btop, int bright, int bbot){
+void BoxCollider2D::updateCollider(int bleft, int btop, int bright, int bbot){
     boxLeft = bleft;
     boxRight = bright;
     boxTop = btop;
     boxBottom = bbot;
-
-    return collided;
 }
 
 int BoxCollider2D::getBoxLeft(){
@@ -26,6 +24,9 @@ int BoxCollider2D::getBoxTop(){
 }
 int BoxCollider2D::getBoxBottom(){
     return boxBottom;
+}
+bool BoxCollider2D::getCollision(){
+    return collided;
 }
 
 void BoxCollider2D::setCollision(int value){

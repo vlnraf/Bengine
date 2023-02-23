@@ -6,7 +6,7 @@ class BoxCollider2D{
         BoxCollider2D();
         ~BoxCollider2D();
 
-        bool updateCollider(int bleft, int btop, int bright, int bbot);
+        void updateCollider(int bleft, int btop, int bright, int bbot);
 
         int getBoxLeft();
         int getBoxRigth();
@@ -14,6 +14,7 @@ class BoxCollider2D{
         int getBoxBottom();
 
         void setCollision(int value);
+        bool getCollision();
         //void setBoxLeft(int value);
         //void setBoxRigth(int value);
         //void setBoxTop(int value);

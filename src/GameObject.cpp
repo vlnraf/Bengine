@@ -27,7 +27,7 @@ GameObject::~GameObject(){
 }
 
 void GameObject::update(float dt){
-    collided = c->updateCollider(xpos, ypos, xpos+w, ypos+h);
+    c->updateCollider(xpos, ypos, xpos+w, ypos+h);
 }
 
 void GameObject::draw(){
