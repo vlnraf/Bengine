@@ -1,6 +1,7 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 #include "GameEngine.hpp"
+#include "BoxCollider2d.hpp"
 
 class GameObject{
     public:
@@ -9,12 +10,13 @@ class GameObject{
 
         virtual void update(float dt);
         virtual void draw();
+        virtual void addCollider();
 
     protected:
+    int xpos, ypos, w, h;
+    BoxCollider2D *c; //In the Future i try to implement an ECS so i can use different colliders and in general different components
     SDL_Texture *objTexture;
     SDL_Renderer *renderer;
-    int xpos, ypos, w, h;
     SDL_Rect drect, srect;
-
 };
 #endif

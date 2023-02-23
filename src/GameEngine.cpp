@@ -4,12 +4,13 @@
 #include "Player1.hpp"
 #include "Player2.hpp"
 #include "Ball.hpp"
+#include "BoxCollider2d.hpp"
 
-SDL_Rect drect;
-Ball *ball;
+//SDL_Rect drect;
 //GameObject *player;
 Player1 *player;
 Player2 *player2;
+Ball *ball;
 
 
 GameEngine::GameEngine(){}
@@ -23,7 +24,8 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
 
     SDL_Init(SDL_INIT_EVERYTHING);
     window = SDL_CreateWindow("SDL Tests", x, y, w, h, flags);
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED && SDL_RENDERER_PRESENTVSYNC);
+    //renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED && SDL_RENDERER_PRESENTVSYNC);
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     isRunning = true;
 
@@ -33,9 +35,15 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
     }
 
     //player = new GameObject(renderer, "assets/p1texture.png", 0, 0, 20, 100);
-    player = new Player1(renderer, "assets/p1texture.png", 10, HEIGHT/2 - 50, 20, 100);
+    player = new Player1(renderer, "assets/p1texture.png", 10, (HEIGHT /2) - 50, 20, 100);
     player2 = new Player2(renderer, "assets/p1texture.png", (WIDTH-20)-10, HEIGHT/2 - 50, 20, 100);
     ball = new Ball(renderer, "assets/p1texture.png", WIDTH/2 - 5, HEIGHT/2 - 5, 10, 10);
+
+    ball->addCollider();
+    player2->addCollider();
+    player->addCollider();
+    //CollisionManager *c = new CollisionManager();
+    //c->addObject(player);
 };
 
 void GameEngine::eventHandler(){
@@ -99,6 +107,9 @@ void GameEngine::destroy(){
     SDL_Quit();
     window = nullptr;
     renderer = nullptr;
+    player = nullptr;
+    player2 = nullptr;
+    ball = nullptr;
     std::cout << "Memory cleaned" << std::endl;
 };
 

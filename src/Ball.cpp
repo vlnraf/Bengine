@@ -9,8 +9,10 @@ Ball::Ball(SDL_Renderer *renderer, std::string texture, int x, int y, int width,
 }
 
 void Ball::update(float dt){
+    GameObject::update(dt);
     xpos += xvel * dt;
     ypos += yvel * dt;
+    //std::cout<<c->getBoxBottom()<< " "<< c->getBoxLeft() << " "<< c->getBoxRigth() << " "<< c->getBoxTop() << std::endl;
 
     checkBorders();
 
@@ -31,6 +33,10 @@ void Ball::initDirection(){
     }else{
         xvel = -SPEED_BALL;
     }
+}
+
+void Ball::addCollider(){
+    GameObject::addCollider();
 }
 
 void Ball::checkBorders(){

@@ -13,8 +13,9 @@ class Ball : GameObject {
         void checkBorders();
         void update(float dt) override;
         void draw() override;
-        void setDirectionX(int d);
-        void setDirectionY(int d);
+        void addCollider() override;
+        //void setDirectionX(int d);
+        //void setDirectionY(int d);
 
     private:
         float xvel;

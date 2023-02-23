@@ -2,6 +2,7 @@
 
 
 void Player2::update(float dt){
+    GameObject::update(dt);
     ypos += vel * dt;
 
     if(ypos < 0){ // Prevent the player to go over the top screen
@@ -22,4 +23,8 @@ void Player2::draw(){
 
 void Player2::setVelocity(int v){
     vel = v;
+}
+
+void Player2::addCollider(){
+    GameObject::addCollider();
 }

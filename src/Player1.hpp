@@ -10,6 +10,7 @@ class Player1 : GameObject{
 
         void update(float dt) override;
         void draw() override;
+        void addCollider() override;
         void setVelocity(int v);
     
     private:
