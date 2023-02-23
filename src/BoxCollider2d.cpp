@@ -1,6 +1,8 @@
 #include "BoxCollider2d.hpp"
+#include <tuple>
 
-BoxCollider2D::BoxCollider2D(){
+BoxCollider2D::BoxCollider2D(std::string name){
+    this->name = name;
     collided = false;
 }
 
@@ -25,12 +27,16 @@ int BoxCollider2D::getBoxTop(){
 int BoxCollider2D::getBoxBottom(){
     return boxBottom;
 }
-bool BoxCollider2D::getCollision(){
-    return collided;
+std::string BoxCollider2D::getName(){
+    return name;
+}
+std::tuple<bool, std::string> BoxCollider2D::getCollision(){
+    return std::make_tuple(collided, cname);
 }
 
-void BoxCollider2D::setCollision(int value){
+void BoxCollider2D::setCollision(int value, std::string n){
     collided = value;
+    cname = n;
 }
 
 //void BoxCollider2D::setBoxLeft(int value){

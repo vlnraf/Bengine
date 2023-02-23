@@ -26,6 +26,6 @@ void Player1::draw(){
 void Player1::setVelocity(int v){
     vel = v;
 }
-void Player1::addCollider(){
-    GameObject::addCollider();
+void Player1::addCollider(std::string name){
+    GameObject::addCollider(name);
 }

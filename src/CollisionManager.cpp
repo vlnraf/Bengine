@@ -23,27 +23,22 @@ void CollisionManager::checkCollision(){
 
 void CollisionManager::checkObjectCollision(BoxCollider2D *a, BoxCollider2D *b){
     if(a->getBoxRigth() >= b->getBoxLeft() && a->getBoxTop() <= b->getBoxBottom() && a->getBoxBottom() >= b->getBoxTop() && a->getBoxLeft() <= b->getBoxRigth()){
-        //std::cout<<"Collision"<<std::endl;
-        a->setCollision(true);
-        b->setCollision(true);
+        a->setCollision(true, b->getName());
+        b->setCollision(true, a->getName());
     }
-    //if(a->getBoxRigth() >= b->getBoxLeft()){
-    //    std::cout<<a->getBoxRigth()<<std::endl;
-    //    std::cout<<b->getBoxLeft()<<std::endl;
-    //}
 }
 
 void CollisionManager::checkWallCollision(BoxCollider2D *c){
     if(c->getBoxTop() < 0){
-        c->setCollision(true);
+        c->setCollision(true, "screenwall");
     }
     if(c->getBoxBottom() > screenH){
-        c->setCollision(true);
+        c->setCollision(true, "screenwall");
     }
     if(c->getBoxLeft() < 0){
-        c->setCollision(true);
+        c->setCollision(true, "screenwall");
     }
     if(c->getBoxRigth() > screenW){
-        c->setCollision(true);
+        c->setCollision(true, "screenwall");
     }
 }

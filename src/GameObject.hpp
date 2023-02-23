@@ -1,5 +1,6 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
+#include <iostream>
 #include "GameEngine.hpp"
 #include "BoxCollider2d.hpp"
 
@@ -12,7 +13,7 @@ class GameObject{
 
         virtual void update(float dt);
         virtual void draw();
-        virtual void addCollider();
+        virtual void addCollider(std::string name);
 
     protected:
     float xpos, ypos, w, h;

@@ -10,7 +10,7 @@ class Player1 : public GameObject{
 
         void update(float dt) override;
         void draw() override;
-        void addCollider() override;
+        void addCollider(std::string name) override;
         void setVelocity(int v);
     
     private:

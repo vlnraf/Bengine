@@ -1,6 +1,7 @@
 #include "Ball.hpp"
 #include <time.h>
 #include <random>
+#include <tuple>
 
 
 Ball::Ball(SDL_Renderer *renderer, std::string texture, int x, int y, int width, int height) : GameObject(renderer, texture, x, y, width, height){
@@ -8,10 +9,19 @@ Ball::Ball(SDL_Renderer *renderer, std::string texture, int x, int y, int width,
 }
 
 void Ball::update(float dt){
-    if(c->getCollision()){
+    bool coll;
+    std::string collName;
+    std::tie(coll, collName) = c->getCollision();
+    if(coll){
+        if(collName == "player1" || collName == "player2"){
             xvel = -xvel;
             //yvel = 0;
-            c->setCollision(false);
+        }
+        if(collName == "screenwall"){ // those are fixed objects that determine the screen walls
+            xpos = WIDTH /2;
+            ypos = HEIGHT /2;
+        }
+        c->setCollision(false, "");
     }
     xpos += xvel * dt;
     ypos += yvel * dt;
@@ -36,26 +46,6 @@ void Ball::initDirection(){
     }
 }
 
-void Ball::addCollider(){
-    GameObject::addCollider();
-}
-
-void Ball::checkBorders(){
-    if(ypos < 0){ // Prevent the ball to go over the top screen
-        yvel *= -1;
-    }
-
-    if(ypos > HEIGHT-drect.h){ //Prevent the ball to go over the bottom of the screen
-        yvel *= 1;
-    }
-
-    if(xpos < 0){ // Reset ball if left wall is hitted
-        xpos = WIDTH /2;
-        ypos = HEIGHT /2;
-    }
-
-    if(xpos > WIDTH-drect.w){ //Reset ball if right wall is hitted
-        xpos = WIDTH /2;
-        ypos = HEIGHT /2;
-    }
+void Ball::addCollider(std::string name){
+    GameObject::addCollider(name);
 }
