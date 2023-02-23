@@ -35,7 +35,7 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
     //player = new GameObject(renderer, "assets/p1texture.png", 0, 0, 20, 100);
     player = new Player1(renderer, "assets/p1texture.png", 10, HEIGHT/2 - 50, 20, 100);
     player2 = new Player2(renderer, "assets/p1texture.png", (WIDTH-20)-10, HEIGHT/2 - 50, 20, 100);
-    ball = new Ball(renderer, "assets/p1texture.png", WIDTH/2, HEIGHT/2 - 10, 10, 10);
+    ball = new Ball(renderer, "assets/p1texture.png", WIDTH/2 - 5, HEIGHT/2 - 5, 10, 10);
 };
 
 void GameEngine::eventHandler(){

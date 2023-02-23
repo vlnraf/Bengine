@@ -17,10 +17,8 @@ class Ball : GameObject {
         void setDirectionY(int d);
 
     private:
-        int xvel;
-        int yvel;
-        int xdir;
-        int ydir;
+        float xvel;
+        float yvel;
 
 };
 
