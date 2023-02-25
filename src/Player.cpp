@@ -6,19 +6,20 @@ void Player::update(float dt){
     ypos += vel * dt;
     GameObject::update(dt);
 
-    bool coll;
+    //bool coll;
     std::string collName;
-    std::tie(coll, collName) = c->getCollision();
-    std::cout<<coll<<collName<<std::endl;
-    if(coll){
-        if(collName == "screenwallt"){
-            ypos = 0;
-        }
-        if(collName == "screenwallb"){
-            ypos = HEIGHT - h;
-        }
-        c->setCollision(false,"");
+    //std::tie(coll, collName) = c->getCollision();
+    collName = c->getInfos().collisionName;
+    std::cout<<collName<<std::endl;
+    //if(coll){
+    if(collName == "screenwallt"){
+        ypos = 0;
     }
+    if(collName == "screenwallb"){
+        ypos = HEIGHT - h;
+    }
+    c->setCollision("");
+    //}
     
     //if(c->getBoxTop() < 0){ // Prevent the player to go over the top screen
     //    ypos = 0;

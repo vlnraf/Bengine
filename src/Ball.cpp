@@ -9,24 +9,25 @@ Ball::Ball(SDL_Renderer *renderer, std::string texture, int x, int y, int width,
 }
 
 void Ball::update(float dt){
-    bool coll;
+    //bool coll;
     std::string collName;
-    std::tie(coll, collName) = c->getCollision();
-    if(coll){
-        if(collName == "player1" || collName == "player2"){
-            xvel = -xvel;
-            //yvel = 0;
-        }
-        if(collName == "screenwallr" || collName == "screenwalll"){ // those are fixed objects that determine the screen walls
-            //TODO: give a point to the player
-            xpos = WIDTH /2;
-            ypos = HEIGHT /2;
-        }
-        if(collName == "screenwallt" || collName == "screenwallb"){ // those are fixed objects that determine the screen walls
-            yvel = -yvel;
-        }
-        c->setCollision(false, "");
+    //std::tie(coll, collName) = c->getCollision();
+    collName = c->getInfos().collisionName;
+    //if(coll){
+    if(collName == "player1" || collName == "player2"){
+        xvel = -xvel;
+        //yvel = 0;
     }
+    if(collName == "screenwallr" || collName == "screenwalll"){ // those are fixed objects that determine the screen walls
+        //TODO: give a point to the player
+        xpos = WIDTH /2;
+        ypos = HEIGHT /2;
+    }
+    if(collName == "screenwallt" || collName == "screenwallb"){ // those are fixed objects that determine the screen walls
+        yvel = -yvel;
+    }
+    c->setCollision("");
+    //}
     xpos += xvel * dt;
     ypos += yvel * dt;
     GameObject::update(dt);

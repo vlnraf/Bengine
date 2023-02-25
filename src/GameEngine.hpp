@@ -16,7 +16,6 @@ class GameEngine{
         void eventHandler();
         void draw();
         void update();
-        void updatePhysics();
         void destroy();
 
         bool run();

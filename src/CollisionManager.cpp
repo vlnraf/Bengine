@@ -1,13 +1,26 @@
 #include "CollisionManager.hpp"
 
-CollisionManager::CollisionManager(int screenWidth, int screenHeight){
-    screenW = screenWidth;
-    screenH = screenHeight;
+CollisionManager* CollisionManager::instance = nullptr;
+
+CollisionManager::CollisionManager(){
 }
 
 CollisionManager::~CollisionManager(){
 
 }
+
+CollisionManager* CollisionManager::Istance(){
+    if(instance == nullptr){
+        instance = new CollisionManager();
+    }
+    return instance;
+}
+
+void CollisionManager::setScreen(int screenWidth, int screenHeight){
+    screenW = screenWidth;
+    screenH = screenHeight;
+}
+
 void CollisionManager::pushCollider(BoxCollider2D *b){
     listColliders.push_back(b);
 }
@@ -23,22 +36,22 @@ void CollisionManager::checkCollision(){
 
 void CollisionManager::checkObjectCollision(BoxCollider2D *a, BoxCollider2D *b){
     if(a->getBoxRigth() >= b->getBoxLeft() && a->getBoxTop() <= b->getBoxBottom() && a->getBoxBottom() >= b->getBoxTop() && a->getBoxLeft() <= b->getBoxRigth()){
-        a->setCollision(true, b->getName());
-        b->setCollision(true, a->getName());
+        a->setCollision(b->getName());
+        b->setCollision(a->getName());
     }
 }
 
 void CollisionManager::checkWallCollision(BoxCollider2D *c){
     if(c->getBoxTop() < 0){
-        c->setCollision(true, "screenwallt");
+        c->setCollision("screenwallt");
     }
     if(c->getBoxBottom() > screenH){
-        c->setCollision(true, "screenwallb");
+        c->setCollision("screenwallb");
     }
     if(c->getBoxLeft() < 0){
-        c->setCollision(true, "screenwalll");
+        c->setCollision("screenwalll");
     }
     if(c->getBoxRigth() > screenW){
-        c->setCollision(true, "screenwallr");
+        c->setCollision("screenwallr");
     }
 }

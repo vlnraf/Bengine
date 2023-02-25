@@ -41,13 +41,12 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
     player2 = new Player(renderer, "assets/p2texture.png", (WIDTH-20)-10, HEIGHT/2 - 50, 10, 100);
     ball = new Ball(renderer, "assets/balltexture.png", WIDTH/2 - 5, HEIGHT/2 - 5, 10, 10);
 
+    cm = CollisionManager::Istance();
+    cm->setScreen(WIDTH, HEIGHT);
+
     player->addCollider("player1");
     player2->addCollider("player2");
     ball->addCollider("ball");
-    cm = new CollisionManager(WIDTH, HEIGHT);
-    cm->pushCollider(player->c);
-    cm->pushCollider(player2->c);
-    cm->pushCollider(ball->c);
 };
 
 void GameEngine::eventHandler(){

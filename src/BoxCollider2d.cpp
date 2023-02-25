@@ -3,7 +3,7 @@
 
 BoxCollider2D::BoxCollider2D(std::string name){
     this->name = name;
-    collided = false;
+    //collided = false;
 }
 
 BoxCollider2D::~BoxCollider2D(){}
@@ -30,13 +30,19 @@ int BoxCollider2D::getBoxBottom(){
 std::string BoxCollider2D::getName(){
     return name;
 }
-std::tuple<bool, std::string> BoxCollider2D::getCollision(){
-    return std::make_tuple(collided, cname);
+
+//std::tuple<bool, std::string> BoxCollider2D::getCollision(){
+//    return std::make_tuple(collided, cname);
+//}
+
+collisionInfos BoxCollider2D::getInfos(){
+    return infos;
 }
 
-void BoxCollider2D::setCollision(int value, std::string n){
-    collided = value;
-    cname = n;
+void BoxCollider2D::setCollision(std::string n){
+    //collided = value;
+    infos.collisionName = n;
+    //cname = n;
 }
 
 //void BoxCollider2D::setBoxLeft(int value){

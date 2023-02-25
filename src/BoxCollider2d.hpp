@@ -1,10 +1,15 @@
 #ifndef BOX_COLLIDER2D_H
 #define BOX_COLLIDER2D_H
 #include <iostream>
+struct collisionInfos {
+    std::string collisionName;
+    int x;
+    int y;
+};
 
 class BoxCollider2D{
     public:
-        std::string cname;
+        //std::string cname;
 
         BoxCollider2D(std::string name);
         ~BoxCollider2D();
@@ -16,8 +21,9 @@ class BoxCollider2D{
         int getBoxTop();
         int getBoxBottom();
 
-        void setCollision(int value, std::string name);
-        std::tuple<bool, std::string> getCollision();
+        void setCollision(std::string name);
+        //std::tuple<bool, std::string> getCollision();
+        collisionInfos getInfos();
         std::string getName();
         //void setBoxLeft(int value);
         //void setBoxRigth(int value);
@@ -27,7 +33,9 @@ class BoxCollider2D{
     private:
         std::string name;
         float boxLeft, boxRight, boxTop, boxBottom;
-        bool collided;
+        struct collisionInfos infos;
+        //bool collided;
+
 };
 
 #endif

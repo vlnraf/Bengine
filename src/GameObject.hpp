@@ -2,11 +2,11 @@
 #define GAMEOBJECT_H
 #include <iostream>
 #include "GameEngine.hpp"
+#include "CollisionManager.hpp"
 #include "BoxCollider2d.hpp"
 
 class GameObject{
     public:
-        BoxCollider2D *c; //In the Future i try to implement an ECS so i can use different colliders and in general different components
 
         GameObject(SDL_Renderer *rend, std::string texture, int x, int y, int width, int height);
         ~GameObject();
@@ -16,6 +16,8 @@ class GameObject{
         virtual void addCollider(std::string name);
 
     protected:
+    BoxCollider2D *c; 
+    CollisionManager *cm;
     float xpos, ypos, w, h;
     //bool collided;
     SDL_Texture *objTexture;

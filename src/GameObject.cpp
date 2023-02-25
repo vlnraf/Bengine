@@ -34,6 +34,8 @@ void GameObject::draw(){
 }
 
 void GameObject::addCollider(std::string name){
+    cm = CollisionManager::Istance();
     c = new BoxCollider2D(name);
     c->updateCollider(xpos, ypos, xpos+w, ypos+h);
+    cm->pushCollider(c);
 }
