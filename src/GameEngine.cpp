@@ -2,7 +2,6 @@
 #include "TextureManager.hpp"
 #include "GameObject.hpp"
 #include "Player.hpp"
-//#include "Player2.hpp"
 #include "Ball.hpp"
 #include "BoxCollider2d.hpp"
 #include "CollisionManager.hpp"

@@ -1,4 +1,5 @@
 {
+    //"editor.formatOnSave": true,
     "files.associations": {
         "ostream": "cpp",
         "array": "cpp",
@@ -44,6 +45,6 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "cinttypes": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
     }
 }
