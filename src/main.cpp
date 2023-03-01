@@ -33,6 +33,7 @@ int main (int argv, char *args[]){
     }
 
     game->destroy();
+    delete game;
     game = nullptr;
     return 0;
 }

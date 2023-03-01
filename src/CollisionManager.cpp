@@ -6,7 +6,8 @@ CollisionManager::CollisionManager(){
 }
 
 CollisionManager::~CollisionManager(){
-
+    //delete instance;
+    //instance = nullptr;
 }
 
 CollisionManager* CollisionManager::Istance(){
@@ -14,6 +15,11 @@ CollisionManager* CollisionManager::Istance(){
         instance = new CollisionManager();
     }
     return instance;
+}
+
+void CollisionManager::destroy(){
+    delete instance;
+    instance = nullptr;
 }
 
 void CollisionManager::setScreen(int screenWidth, int screenHeight){

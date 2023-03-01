@@ -6,15 +6,16 @@
 class Player : public GameObject{
     
     public:
-        using GameObject::GameObject;
+        Player(SDL_Renderer *renderer, std::string texture, int x, int y, int width, int height);
 
         void update(float dt) override;
         void draw() override;
-        void addCollider(std::string name) override;
-        void setVelocity(int v);
+        //void addCollider(std::string name) override;
+        void setVelocity(int xv, int yv);
     
     private:
-        float vel = 5;
+        float xvel;
+        float yvel;
 };
 
 #endif

@@ -6,7 +6,8 @@ BoxCollider2D::BoxCollider2D(std::string name){
     //collided = false;
 }
 
-BoxCollider2D::~BoxCollider2D(){}
+BoxCollider2D::~BoxCollider2D(){
+}
 
 void BoxCollider2D::updateCollider(int bleft, int btop, int bright, int bbot){
     boxLeft = bleft;

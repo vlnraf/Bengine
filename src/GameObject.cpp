@@ -1,5 +1,7 @@
 #include "GameObject.hpp"
 #include "TextureManager.hpp"
+#include <SDL2/SDL_mutex.h>
+#include <SDL2/SDL_render.h>
 
 GameObject::GameObject(SDL_Renderer *rend, std::string texture, int x, int y, int width, int height){
     renderer = rend;
@@ -22,7 +24,12 @@ GameObject::GameObject(SDL_Renderer *rend, std::string texture, int x, int y, in
 }
 
 GameObject::~GameObject(){
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyTexture(objTexture);
+    delete c;
     c = nullptr;
+    std::cout<<"ciao"<<std::endl;
+    //cm->destroy();
 }
 
 void GameObject::update(float dt){

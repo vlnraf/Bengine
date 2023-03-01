@@ -64,23 +64,23 @@ void GameEngine::eventHandler(){
 
         const Uint8 * keystates = SDL_GetKeyboardState(NULL);
         
-        player->setVelocity(0);
+        player->setVelocity(0,0);
 
         if(keystates[SDL_SCANCODE_W]){
-            player->setVelocity(-3);
+            player->setVelocity(0,-3);
         }
 
         if(keystates[SDL_SCANCODE_S]){
-            player->setVelocity(3);
+            player->setVelocity(0, 3);
         }
 
-        player2->setVelocity(0);
+        player2->setVelocity(0,0);
         if(keystates[SDL_SCANCODE_I]){
-            player2->setVelocity(-3);
+            player2->setVelocity(0, -3);
         }
 
         if(keystates[SDL_SCANCODE_K]){
-            player2->setVelocity(3);
+            player2->setVelocity(0, 3);
         }
     }
 
@@ -108,11 +108,18 @@ void GameEngine::destroy(){
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     SDL_Quit();
+    delete player;
+    delete player2;
+    delete ball;
+    std::cout<<"ciao"<<std::endl;
+    cm->destroy();
+    //delete cm;
     window = nullptr;
     renderer = nullptr;
     player = nullptr;
     player2 = nullptr;
     ball = nullptr;
+    cm = nullptr;
     std::cout << "Memory cleaned" << std::endl;
 };
 

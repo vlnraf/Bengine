@@ -1,9 +1,13 @@
 #include "Player.hpp"
 #include <tuple>
 
-
+Player::Player(SDL_Renderer *renderer, std::string texture, int x, int y, int width, int height) : GameObject(renderer, texture, x, y, width, height){
+    xvel = 0;
+    yvel = 5;
+}
 void Player::update(float dt){
-    ypos += vel * dt;
+    xpos += xvel * dt;
+    ypos += yvel * dt;
     GameObject::update(dt);
 
     //bool coll;
@@ -37,9 +41,11 @@ void Player::draw(){
     GameObject::draw();
 }
 
-void Player::setVelocity(int v){
-    vel = v;
+void Player::setVelocity(int xv, int yv){
+    xvel = xv;
+    yvel = yv;
 }
-void Player::addCollider(std::string name){
-    GameObject::addCollider(name);
-}
+
+//void Player::addCollider(std::string name){
+//    GameObject::addCollider(name);
+//}

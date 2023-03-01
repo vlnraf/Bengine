@@ -5,13 +5,14 @@
 
 
 Ball::Ball(SDL_Renderer *renderer, std::string texture, int x, int y, int width, int height) : GameObject(renderer, texture, x, y, width, height){
+    xvel=0;
+    yvel=0;
     initDirection();
 }
 
 void Ball::update(float dt){
     //bool coll;
     std::string collName;
-    //std::tie(coll, collName) = c->getCollision();
     collName = c->getInfos().collisionName;
     //if(coll){
     if(collName == "player1" || collName == "player2"){
@@ -51,6 +52,6 @@ void Ball::initDirection(){
     }
 }
 
-void Ball::addCollider(std::string name){
-    GameObject::addCollider(name);
-}
+//void Ball::addCollider(std::string name){
+//    GameObject::addCollider(name);
+//}

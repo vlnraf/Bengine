@@ -8,6 +8,7 @@ class CollisionManager{
     public:
         static CollisionManager* Istance();
 
+        void destroy();
         void setScreen(int screenWidth, int screenHeight);
         void pushCollider(BoxCollider2D *b);
         void checkWallCollision(BoxCollider2D *b);

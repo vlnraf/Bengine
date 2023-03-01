@@ -6,6 +6,7 @@ endif
 
 CXX = g++
 ifeq ($(detected_OS), Windows)
+ASAN_FLAGS = -fsanitize=address
 CXXFLAGS = -std=c++17 -Wall
 LDFLAGS = -lmingw32 -lSDL2main -lSDL2 -lSDL2_image
 endif
@@ -13,6 +14,7 @@ endif
 ifeq ($(detected_OS), Linux)
 CXXFLAGS = -std=c++17 -Wall
 #LDFLAGS = -lSDL2main -lSDL2 -ldl -lSDL2_image
+ASAN_FLAGS = -fsanitize=address
 LDFLAGS = `sdl2-config --cflags --libs` -lSDL2 -lSDL2_image -ldl
 endif
 
@@ -24,12 +26,14 @@ all: $(BIN)/pong
 
 ifeq ($(detected_OS), Windows)
 $(BIN)/pong: $(SRC)/*.cpp
-	$(CXX) $(CXXFLAGS) -I include -L lib $^ -o $@ $(LDFLAGS)
+	mkdir -p $(BIN)
+	$(CXX) $(CXXFLAGS) $(ASAN_FLAGS) -I include -L lib $^ -o $@ $(LDFLAGS)
 endif
 
 ifeq ($(detected_OS), Linux)
 $(BIN)/pong: $(SRC)/*.cpp
-	$(CXX) $(CXXFLAGS) -I include $^ -o $@ $(LDFLAGS)
+	mkdir -p $(BIN)
+	$(CXX) $(CXXFLAGS) $(ASAN_FLAGS) -I include $^ -o $@ $(LDFLAGS)
 endif
 
 ifeq ($(detected_OS), Linux)
