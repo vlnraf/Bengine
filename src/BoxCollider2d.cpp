@@ -14,6 +14,10 @@ void BoxCollider2D::updateCollider(int bleft, int btop, int bright, int bbot){
     boxRight = bright;
     boxTop = btop;
     boxBottom = bbot;
+    infos.lhit = bleft;
+    infos.rhit = bright;
+    infos.thit = btop;
+    infos.bhit = bbot;
 }
 
 int BoxCollider2D::getBoxLeft(){
@@ -42,6 +46,16 @@ collisionInfos BoxCollider2D::getInfos(){
 
 void BoxCollider2D::setCollision(std::string n){
     //collided = value;
+    infos.collisionName = n;
+    //cname = n;
+}
+
+void BoxCollider2D::setCollision(std::string n, int leftHit, int rightHit, int topHit, int bottomHit){
+    //collided = value;
+    infos.lhit = leftHit;
+    infos.rhit = rightHit;
+    infos.thit = topHit;
+    infos.bhit = bottomHit;
     infos.collisionName = n;
     //cname = n;
 }

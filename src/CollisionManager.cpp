@@ -42,8 +42,8 @@ void CollisionManager::checkCollision(){
 
 void CollisionManager::checkObjectCollision(BoxCollider2D *a, BoxCollider2D *b){
     if(a->getBoxRigth() >= b->getBoxLeft() && a->getBoxTop() <= b->getBoxBottom() && a->getBoxBottom() >= b->getBoxTop() && a->getBoxLeft() <= b->getBoxRigth()){
-        a->setCollision(b->getName());
-        b->setCollision(a->getName());
+        a->setCollision(b->getName(), b->getBoxLeft(), b->getBoxRigth(), b->getBoxTop(), b->getBoxBottom());
+        b->setCollision(a->getName(), a->getBoxLeft(), a->getBoxRigth(), a->getBoxTop(), a->getBoxBottom());
     }
 }
 

@@ -5,6 +5,13 @@
 #include "CollisionManager.hpp"
 #include "BoxCollider2d.hpp"
 
+enum class hit{
+    None,
+    Top,
+    Middle,
+    Bottom
+};
+
 class GameObject{
     public:
 

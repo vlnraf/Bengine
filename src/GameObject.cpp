@@ -28,7 +28,6 @@ GameObject::~GameObject(){
     SDL_DestroyTexture(objTexture);
     delete c;
     c = nullptr;
-    std::cout<<"ciao"<<std::endl;
     //cm->destroy();
 }
 

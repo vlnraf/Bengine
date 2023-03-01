@@ -3,8 +3,10 @@
 #include <iostream>
 struct collisionInfos {
     std::string collisionName;
-    int x;
-    int y;
+    int lhit;
+    int rhit;
+    int thit;
+    int bhit;
 };
 
 class BoxCollider2D{
@@ -22,6 +24,7 @@ class BoxCollider2D{
         int getBoxBottom();
 
         void setCollision(std::string name);
+        void setCollision(std::string n, int leftHit, int rightHit, int topHit, int bottomHit);
         //std::tuple<bool, std::string> getCollision();
         collisionInfos getInfos();
         std::string getName();

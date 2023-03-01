@@ -14,11 +14,31 @@ void Ball::update(float dt){
     //bool coll;
     std::string collName;
     collName = c->getInfos().collisionName;
-    //if(coll){
+    int paddleLeft = c->getInfos().lhit;
+    int paddleRight = c->getInfos().rhit;
+    int paddleTop = c->getInfos().thit;
+    int paddleBot = c->getInfos().bhit;
+    float paddleRangeMiddle = paddleBot - ((float) (paddleBot - paddleTop)) / 3;
+    float paddleRangeUp = paddleBot - (((float) (paddleBot - paddleTop)) * 2) /3;
+
     if(collName == "player1" || collName == "player2"){
-        xvel = -xvel;
-        //yvel = 0;
+        if((c->getBoxBottom() > paddleTop) && (c->getBoxBottom() < paddleRangeUp)){
+            xvel = -xvel;
+            yvel = -.75 * SPEED_BALL;
+        }else if(c->getBoxBottom() > paddleTop && (c->getBoxBottom() < paddleRangeMiddle)){
+            xvel = -xvel;
+            yvel = 0;
+        }else{
+            xvel = -xvel;
+            yvel = .75 * SPEED_BALL;
+            //yvel = .75 * SPEED_BALL;
+        }
+
     }
+    //if(collName == "player1" || collName == "player2"){
+    //    xvel = -xvel;
+    //    //yvel = 0;
+    //}
     if(collName == "screenwallr" || collName == "screenwalll"){ // those are fixed objects that determine the screen walls
         //TODO: give a point to the player
         xpos = WIDTH /2;

@@ -27,6 +27,7 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
     window = SDL_CreateWindow("SDL Tests", x, y, w, h, flags);
     //renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED && SDL_RENDERER_PRESENTVSYNC);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    //renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 
     isRunning = true;
 
@@ -111,7 +112,6 @@ void GameEngine::destroy(){
     delete player;
     delete player2;
     delete ball;
-    std::cout<<"ciao"<<std::endl;
     cm->destroy();
     //delete cm;
     window = nullptr;

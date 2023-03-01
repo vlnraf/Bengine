@@ -14,7 +14,6 @@ void Player::update(float dt){
     std::string collName;
     //std::tie(coll, collName) = c->getCollision();
     collName = c->getInfos().collisionName;
-    std::cout<<collName<<std::endl;
     //if(coll){
     if(collName == "screenwallt"){
         ypos = 0;
