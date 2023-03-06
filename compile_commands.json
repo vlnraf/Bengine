@@ -1,0 +1,164 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "src/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "src/Ball.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong",
+    "file": "/home/raffo/fun/Pong/src/Ball.cpp",
+    "output": "/home/raffo/fun/Pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "src/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "src/main.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong",
+    "file": "/home/raffo/fun/Pong/src/main.cpp",
+    "output": "/home/raffo/fun/Pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "src/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "src/Player.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong",
+    "file": "/home/raffo/fun/Pong/src/Player.cpp",
+    "output": "/home/raffo/fun/Pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "src/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "src/core/BoxCollider2d.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong",
+    "file": "/home/raffo/fun/Pong/src/core/BoxCollider2d.cpp",
+    "output": "/home/raffo/fun/Pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "src/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "src/core/CollisionManager.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong",
+    "file": "/home/raffo/fun/Pong/src/core/CollisionManager.cpp",
+    "output": "/home/raffo/fun/Pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "src/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "src/core/GameEngine.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong",
+    "file": "/home/raffo/fun/Pong/src/core/GameEngine.cpp",
+    "output": "/home/raffo/fun/Pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "src/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "src/core/GameObject.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong",
+    "file": "/home/raffo/fun/Pong/src/core/GameObject.cpp",
+    "output": "/home/raffo/fun/Pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "src/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "src/core/KeyboardManager.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong",
+    "file": "/home/raffo/fun/Pong/src/core/KeyboardManager.cpp",
+    "output": "/home/raffo/fun/Pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "src/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "src/core/TextureManager.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong",
+    "file": "/home/raffo/fun/Pong/src/core/TextureManager.cpp",
+    "output": "/home/raffo/fun/Pong/bin/pong"
+  }
+]

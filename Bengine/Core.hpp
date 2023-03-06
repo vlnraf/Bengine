@@ -1,0 +1,6 @@
+#include "core/GameEngine.hpp"
+#include "core/TextureManager.hpp"
+#include "core/GameObject.hpp"
+#include "core/BoxCollider2d.hpp"
+#include "core/CollisionManager.hpp"
+#include "core/KeyboardManager.hpp"

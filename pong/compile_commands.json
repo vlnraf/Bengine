@@ -1,0 +1,182 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "../Bengine",
+      "-I",
+      "../Bengine/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "Ball.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong/pong",
+    "file": "/home/raffo/fun/Pong/pong/Ball.cpp",
+    "output": "/home/raffo/fun/Pong/pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "../Bengine",
+      "-I",
+      "../Bengine/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "main.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong/pong",
+    "file": "/home/raffo/fun/Pong/pong/main.cpp",
+    "output": "/home/raffo/fun/Pong/pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "../Bengine",
+      "-I",
+      "../Bengine/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "Player.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong/pong",
+    "file": "/home/raffo/fun/Pong/pong/Player.cpp",
+    "output": "/home/raffo/fun/Pong/pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "../Bengine",
+      "-I",
+      "../Bengine/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "../Bengine/core/BoxCollider2d.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong/pong",
+    "file": "/home/raffo/fun/Pong/Bengine/core/BoxCollider2d.cpp",
+    "output": "/home/raffo/fun/Pong/pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "../Bengine",
+      "-I",
+      "../Bengine/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "../Bengine/core/CollisionManager.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong/pong",
+    "file": "/home/raffo/fun/Pong/Bengine/core/CollisionManager.cpp",
+    "output": "/home/raffo/fun/Pong/pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "../Bengine",
+      "-I",
+      "../Bengine/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "../Bengine/core/GameEngine.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong/pong",
+    "file": "/home/raffo/fun/Pong/Bengine/core/GameEngine.cpp",
+    "output": "/home/raffo/fun/Pong/pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "../Bengine",
+      "-I",
+      "../Bengine/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "../Bengine/core/GameObject.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong/pong",
+    "file": "/home/raffo/fun/Pong/Bengine/core/GameObject.cpp",
+    "output": "/home/raffo/fun/Pong/pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "../Bengine",
+      "-I",
+      "../Bengine/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "../Bengine/core/KeyboardManager.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong/pong",
+    "file": "/home/raffo/fun/Pong/Bengine/core/KeyboardManager.cpp",
+    "output": "/home/raffo/fun/Pong/pong/bin/pong"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-Wall",
+      "-I",
+      "../Bengine",
+      "-I",
+      "../Bengine/core",
+      "-I/usr/include/SDL2",
+      "-D_REENTRANT",
+      "-o",
+      "bin/pong",
+      "../Bengine/core/TextureManager.cpp"
+    ],
+    "directory": "/home/raffo/fun/Pong/pong",
+    "file": "/home/raffo/fun/Pong/Bengine/core/TextureManager.cpp",
+    "output": "/home/raffo/fun/Pong/pong/bin/pong"
+  }
+]
