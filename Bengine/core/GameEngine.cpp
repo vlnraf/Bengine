@@ -4,11 +4,7 @@
 #include "BoxCollider2d.hpp"
 #include "CollisionManager.hpp"
 
-//SDL_Rect drect;
 CollisionManager *cm;
-//Player *player;
-//Player *player2;
-//Ball *ball;
 
 
 GameEngine::GameEngine(std::string title, int x, int y, int w, int h, bool fullscreen){
@@ -21,9 +17,7 @@ GameEngine::GameEngine(std::string title, int x, int y, int w, int h, bool fulls
 
     SDL_Init(SDL_INIT_EVERYTHING);
     window = SDL_CreateWindow("SDL Tests", x, y, w, h, flags);
-    //renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED && SDL_RENDERER_PRESENTVSYNC);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    //renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 
     isRunning = true;
 
@@ -32,17 +26,8 @@ GameEngine::GameEngine(std::string title, int x, int y, int w, int h, bool fulls
         isRunning = false;
     }
 
-    //player = new GameObject(renderer, "assets/p1texture.png", 0, 0, 20, 100);
-//    player = new Player(renderer, "assets/p1texture.png", 10, (HEIGHT /2) - 50, 10, 100);
-//    player2 = new Player(renderer, "assets/p2texture.png", (WIDTH-20)-10, HEIGHT/2 - 50, 10, 100);
-//    ball = new Ball(renderer, "assets/balltexture.png", WIDTH/2 - 5, HEIGHT/2 - 5, 10, 10);
-
     cm = CollisionManager::Istance();
     cm->setScreen(WIDTH, HEIGHT);
-
-//    player->addCollider("player1");
-//    player2->addCollider("player2");
-//    ball->addCollider("ball");
 
 }
 
@@ -50,16 +35,9 @@ GameEngine::~GameEngine(){
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     SDL_Quit();
-//    delete player;
-//    delete player2;
-//    delete ball;
     cm->destroy();
-    //delete cm;
     window = nullptr;
     renderer = nullptr;
-//    player = nullptr;
-//    player2 = nullptr;
-//    ball = nullptr;
     cm = nullptr;
     std::cout << "Memory cleaned" << std::endl;
 }
@@ -68,6 +46,8 @@ void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool 
 };
 
 void GameEngine::eventHandler(){
+    // This is only the eventHandler of the application itself
+    // it probably should be decoupled in a new entity "ApplicationHandler"
     SDL_Event ev;
     SDL_PollEvent(&ev);
     while(SDL_PollEvent(&ev))
@@ -80,34 +60,11 @@ void GameEngine::eventHandler(){
             default:
                 break;
         }
-        //const Uint8 * keystates = SDL_GetKeyboardState(NULL);
-        
-//        player->setVelocity(0,0);
-//
-        //if(keystates[SDL_SCANCODE_W]){
-//            player->setVelocity(0,-3);
-        //}
-//
-//        if(keystates[SDL_SCANCODE_S]){
-//            player->setVelocity(0, 3);
-//        }
-//
-//        player2->setVelocity(0,0);
-//        if(keystates[SDL_SCANCODE_I]){
-//            player2->setVelocity(0, -3);
-//        }
-//
-//        if(keystates[SDL_SCANCODE_K]){
-//            player2->setVelocity(0, 3);
-//        }
     }
 
 };
 
 void GameEngine::update(){
-//    player->update(dt);
-//    player2->update(dt);
-//    ball->update(dt);
     cm->checkCollision();
     SDL_RenderClear(renderer);
 };
@@ -132,9 +89,6 @@ void GameEngine::run(){
 
     Uint32 frameStart;
     float frameTime;
-
-    //GameEngine *game = new GameEngine();
-    //initialize("prova", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, false);
 
     Uint32 ff = SDL_GetTicks();
 
@@ -162,6 +116,3 @@ void GameEngine::run(){
     destroy();
 }
 
-//bool GameEngine::run(){
-//    return isRunning;
-//}

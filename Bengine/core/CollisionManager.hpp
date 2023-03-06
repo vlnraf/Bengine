@@ -5,6 +5,7 @@
 #include "BoxCollider2d.hpp"
 
 class CollisionManager{
+    // this class probably should have only static mathods in order to not create a new cm for each object
     public:
         static CollisionManager* Istance();
 
