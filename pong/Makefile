@@ -30,10 +30,12 @@ debug: $(BIN)/debug
 
 ifeq ($(detected_OS), Windows)
 $(BIN)/pong: $(SRC)/*.cpp
-	$(CXX) $(CXXFLAGS) $(ASAN_FLAGS)  include -L lib $^ -o $@ $(LDFLAGS)
+	mkdir -p $(BIN)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -L lib $^ -o $@ $(LDFLAGS)
 
 $(BIN)/debug: $(SRC)/*.cpp
-	$(CXX) $(CXXFLAGS) $(ASAN_FLAGS) include -L lib $^ -o $@ $(LDFLAGS)
+	mkdir -p $(BIN)
+	$(CXX) $(CXXFLAGS) $(ASAN_FLAGS) $(INCLUDE) -L lib $^ -o $@ $(LDFLAGS)
 endif
 
 ifeq ($(detected_OS), Linux)
