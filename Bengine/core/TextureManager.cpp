@@ -12,10 +12,10 @@ SDL_Texture* TextureManager::LoadTexture(std::string objectTexture){
     return texture;
 };
 
-SDL_Texture* TextureManager::createRGBTexture(const uint32_t r, const uint32_t g, const uint32_t b, const uint32_t a){
-    SDL_Surface* surface = SDL_CreateRGBSurface(0, 100, 100, 8, r, g, b, a);
-    SDL_Texture* texture = Renderer::createTexture(surface);
-    SDL_FreeSurface(surface);
-    
-    return texture;
-};
+//SDL_Texture* TextureManager::createRectTexture(const uint32_t r, const uint32_t g, const uint32_t b, const uint32_t a){
+//    SDL_Surface* surface = SDL_CreateRGBSurface(0, 100, 100, 8, r, g, b, a);
+//    SDL_Texture* texture = Renderer::createTexture(surface);
+//    SDL_FreeSurface(surface);
+//    
+//    return texture;
+//};

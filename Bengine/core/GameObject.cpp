@@ -12,7 +12,9 @@ GameObject::GameObject(const int x, const int y, const int width, const int heig
 }
 
 GameObject::~GameObject(){
-    SDL_DestroyTexture(objTexture);
+    if(objTexture != nullptr){
+        SDL_DestroyTexture(objTexture);
+    }
     delete c;
     c = nullptr;
 }

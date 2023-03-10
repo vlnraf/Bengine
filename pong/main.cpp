@@ -20,16 +20,15 @@ class Application : public GameEngine{
             ball->addSprite("assets/balltexture.png");
             ball->addCollider("ball");
 
-            player3 = new Player("player3", 100, (HEIGHT /2) - 50, 10, 100); //Object without any texture attached
-            player3->addRectSprite(0,200,123,0);
-            player3->addCollider("player3");
-
+            net = new GameObject((WIDTH/2) -5 , 0, 10, HEIGHT);
+            net->addRectSprite(0, 100, 100, 0);
         }
+
         ~Application(){
             delete player;
             delete player2;
             delete ball;
-            delete player3;
+            delete net;
         }
 
         void update() override{
@@ -37,21 +36,20 @@ class Application : public GameEngine{
             player->updateObject(dt);
             player2->updateObject(dt);
             ball->updateObject(dt);
-            //player3->updateObject(dt);
         }
 
         void draw() override{
+            net->drawObject();
             player->drawObject();
             player2->drawObject();
             ball->drawObject();
-            player3->drawObject();
             GameEngine::draw();
         }
 
     private:
         Player *player;
         Player *player2;
-        Player *player3;
+        GameObject *net;
         Ball *ball;
 };
 

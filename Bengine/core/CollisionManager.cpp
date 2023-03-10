@@ -38,8 +38,6 @@ void CollisionManager::checkCollision() const{
 
 void CollisionManager::checkObjectCollision(BoxCollider2D *a, BoxCollider2D *b) const{
     if(a->getBoxRigth() >= b->getBoxLeft() && a->getBoxTop() <= b->getBoxBottom() && a->getBoxBottom() >= b->getBoxTop() && a->getBoxLeft() <= b->getBoxRigth()){
-        std::cout<<a->getName()<<std::endl;
-        std::cout<<b->getName()<<std::endl;
         a->setCollision(b->getName(), b->getBoxLeft(), b->getBoxRigth(), b->getBoxTop(), b->getBoxBottom());
         b->setCollision(a->getName(), a->getBoxLeft(), a->getBoxRigth(), a->getBoxTop(), a->getBoxBottom());
     }

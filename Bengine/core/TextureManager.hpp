@@ -22,7 +22,7 @@ const SDL_Color VIOLET        = _COLOR(0x91, 0, 0xFF);
 class TextureManager{
     public:
         static SDL_Texture* LoadTexture(std::string texture);
-        static SDL_Texture* createRGBTexture(const uint32_t r, const uint32_t g, const uint32_t b, const uint32_t a);
+        //static SDL_Texture* createRectTexture(const uint32_t r, const uint32_t g, const uint32_t b, const uint32_t a);
 };
 
 

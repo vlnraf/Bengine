@@ -20,7 +20,6 @@ struct Sprite{
 
 class GameObject {
     public:
-
         GameObject(const int x, const int y, const int width, const int height);
         virtual ~GameObject();
 

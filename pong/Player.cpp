@@ -17,29 +17,24 @@ void Player::updateObject(float dt){
 
     std::string collName;
     collName = c->getInfos().collisionName;
-    if(collName == "screenwallt"){
-        yvel = 0;
-    }
-    if(collName == "screenwallb"){
-        yvel = 0;
-    }
     setVelocity(0,0);
     if(tag == "player1"){
-        if(keyboardManager->getState()[SDL_SCANCODE_W]){
+        if(keyboardManager->getState()[SDL_SCANCODE_W] && collName != "screenwallt"){
             setVelocity(0,-3);
         }
-        if(keyboardManager->getState()[SDL_SCANCODE_S]){
+        if(keyboardManager->getState()[SDL_SCANCODE_S] && collName != "screenwallb"){
             setVelocity(0,3);
         }
     }
     if(tag == "player2"){
-        if(keyboardManager->getState()[SDL_SCANCODE_I]){
+        if(keyboardManager->getState()[SDL_SCANCODE_I] && collName != "screenwallt"){
             setVelocity(0,-3);
         }
-        if(keyboardManager->getState()[SDL_SCANCODE_K]){
+        if(keyboardManager->getState()[SDL_SCANCODE_K] && collName != "screenwallb"){
             setVelocity(0,3);
         }
     }
+
     GameObject::updateObject(dt);
     c->setCollision("");
 
