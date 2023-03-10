@@ -4,3 +4,4 @@
 #include "core/BoxCollider2d.hpp"
 #include "core/CollisionManager.hpp"
 #include "core/KeyboardManager.hpp"
+#include "core/Renderer.hpp"

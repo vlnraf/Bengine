@@ -8,33 +8,50 @@
 class Application : public GameEngine{
     public:
         Application(std::string title, int x, int y, int w, int h, bool fullscreen):GameEngine(title, x, y, w, h, fullscreen){
-            player = new Player(renderer, "player1", "assets/p1texture.png", 10, (HEIGHT /2) - 50, 10, 100);
-            player2 = new Player(renderer, "player2", "assets/p2texture.png", (WIDTH-20)-10, HEIGHT/2 - 50, 10, 100);
-            ball = new Ball(renderer, "assets/balltexture.png", WIDTH/2 - 5, HEIGHT/2 - 5, 10, 10);
-
+            player = new Player("player1", 10, (HEIGHT /2) - 50, 10, 100);
+            player->addSprite("assets/p1texture.png");
             player->addCollider("player1");
+
+            player2 = new Player("player2", (WIDTH-20)-10, HEIGHT/2 - 50, 10, 100);
+            player2->addSprite("assets/p2texture.png");
             player2->addCollider("player2");
+
+            ball = new Ball(WIDTH/2 - 5, HEIGHT/2 - 5, 10, 10);
+            ball->addSprite("assets/balltexture.png");
             ball->addCollider("ball");
+
+            player3 = new Player("player3", 100, (HEIGHT /2) - 50, 10, 100); //Object without any texture attached
+            player3->addRectSprite(0,200,123,0);
+            player3->addCollider("player3");
+
         }
-        ~Application(){}
+        ~Application(){
+            delete player;
+            delete player2;
+            delete ball;
+            delete player3;
+        }
 
         void update() override{
             GameEngine::update();
             player->updateObject(dt);
             player2->updateObject(dt);
             ball->updateObject(dt);
+            //player3->updateObject(dt);
         }
 
         void draw() override{
             player->drawObject();
             player2->drawObject();
             ball->drawObject();
-            GameEngine::display();
+            player3->drawObject();
+            GameEngine::draw();
         }
 
     private:
         Player *player;
         Player *player2;
+        Player *player3;
         Ball *ball;
 };
 

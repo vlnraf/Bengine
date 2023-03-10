@@ -12,9 +12,9 @@ class CollisionManager{
         void destroy();
         void setScreen(int screenWidth, int screenHeight);
         void pushCollider(BoxCollider2D *b);
-        void checkWallCollision(BoxCollider2D *b);
-        void checkObjectCollision(BoxCollider2D *a, BoxCollider2D *b);
-        void checkCollision();
+        void checkWallCollision(BoxCollider2D *b) const;
+        void checkObjectCollision(BoxCollider2D *a, BoxCollider2D *b) const;
+        void checkCollision() const;
 
     private:
         static CollisionManager* instance;

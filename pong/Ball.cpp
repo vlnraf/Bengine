@@ -4,13 +4,14 @@
 #include <tuple>
 
 
-Ball::Ball(SDL_Renderer* rend, std::string texture, int x, int y, int width, int height) : GameObject(rend, texture, x, y, width, height){
+Ball::Ball(int x, int y, int width, int height) : GameObject(x, y, width, height){
     xvel=0;
     yvel=0;
     xinit=x;
     yinit=y;
     initDirection();
 }
+
 
 void Ball::updateObject(float dt){
     //bool coll;

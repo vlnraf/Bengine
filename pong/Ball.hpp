@@ -7,7 +7,7 @@
 class Ball : public GameObject {
 
     public:
-        Ball(SDL_Renderer* rend,std::string texture, int x, int y, int width, int height);
+        Ball(int x, int y, int width, int height);
 
         void initDirection();
         void updateObject(float dt) override;

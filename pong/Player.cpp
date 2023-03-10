@@ -1,11 +1,15 @@
 #include "Player.hpp"
 #include <tuple>
 
-Player::Player(SDL_Renderer* rend, std::string objectTag, std::string texture, int x, int y, int width, int height) : GameObject(rend,texture, x, y, width, height){
+Player::Player(std::string objectTag, int x, int y, int width, int height) : GameObject(x, y, width, height){
     tag = objectTag;
     keyboardManager = new KeyboardManager();
     xvel = 0;
     yvel = 0;
+}
+
+Player::~Player(){
+    delete keyboardManager;
 }
 void Player::updateObject(float dt){
     xpos += xvel * dt;

@@ -27,7 +27,7 @@ void CollisionManager::pushCollider(BoxCollider2D *b){
     listColliders.push_back(b);
 }
 
-void CollisionManager::checkCollision(){
+void CollisionManager::checkCollision() const{
     for(unsigned int i = 0; i < listColliders.size(); i++){
         checkWallCollision(listColliders[i]);
         for(unsigned int j = i+1; j < listColliders.size(); j++){
@@ -36,14 +36,16 @@ void CollisionManager::checkCollision(){
     }
 }
 
-void CollisionManager::checkObjectCollision(BoxCollider2D *a, BoxCollider2D *b){
+void CollisionManager::checkObjectCollision(BoxCollider2D *a, BoxCollider2D *b) const{
     if(a->getBoxRigth() >= b->getBoxLeft() && a->getBoxTop() <= b->getBoxBottom() && a->getBoxBottom() >= b->getBoxTop() && a->getBoxLeft() <= b->getBoxRigth()){
+        std::cout<<a->getName()<<std::endl;
+        std::cout<<b->getName()<<std::endl;
         a->setCollision(b->getName(), b->getBoxLeft(), b->getBoxRigth(), b->getBoxTop(), b->getBoxBottom());
         b->setCollision(a->getName(), a->getBoxLeft(), a->getBoxRigth(), a->getBoxTop(), a->getBoxBottom());
     }
 }
 
-void CollisionManager::checkWallCollision(BoxCollider2D *c){
+void CollisionManager::checkWallCollision(BoxCollider2D *c) const{
     if(c->getBoxTop() < 0){
         c->setCollision("screenwallt");
     }

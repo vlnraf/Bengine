@@ -6,7 +6,8 @@
 class Player : public GameObject{
     
     public:
-        Player(SDL_Renderer* rend, std::string objectTag, std::string texture, int x, int y, int width, int height);
+        Player(std::string objectTag, int x, int y, int width, int height); 
+        ~Player();
 
         void updateObject(float dt) override;
         void drawObject() override;

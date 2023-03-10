@@ -2,9 +2,8 @@
 #include "TextureManager.hpp"
 #include "GameObject.hpp"
 #include "BoxCollider2d.hpp"
-#include "CollisionManager.hpp"
+#include "Renderer.hpp"
 
-CollisionManager *cm;
 
 
 GameEngine::GameEngine(std::string title, int x, int y, int w, int h, bool fullscreen){
@@ -17,7 +16,7 @@ GameEngine::GameEngine(std::string title, int x, int y, int w, int h, bool fulls
 
     SDL_Init(SDL_INIT_EVERYTHING);
     window = SDL_CreateWindow("SDL Tests", x, y, w, h, flags);
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    Renderer::init(window);
 
     isRunning = true;
 
@@ -33,17 +32,14 @@ GameEngine::GameEngine(std::string title, int x, int y, int w, int h, bool fulls
 
 GameEngine::~GameEngine(){
     SDL_DestroyWindow(window);
-    SDL_DestroyRenderer(renderer);
+    //SDL_DestroyRenderer(renderer);
     SDL_Quit();
     cm->destroy();
     window = nullptr;
-    renderer = nullptr;
+    //renderer = nullptr;
     cm = nullptr;
     std::cout << "Memory cleaned" << std::endl;
 }
-
-void GameEngine::initialize(std::string title, int x, int y, int w, int h, bool fullscreen){
-};
 
 void GameEngine::eventHandler(){
     // This is only the eventHandler of the application itself
@@ -66,21 +62,15 @@ void GameEngine::eventHandler(){
 
 void GameEngine::update(){
     cm->checkCollision();
-    SDL_RenderClear(renderer);
 };
 
 void GameEngine::setBackground(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha){
-    SDL_SetRenderDrawColor(renderer, red, green, blue, alpha );
+    Renderer::setColor(red, green, blue, alpha);
 }
 
 void GameEngine::draw(){
+    Renderer::render();
 }
-
-void GameEngine::display(){
-    SDL_RenderPresent(renderer);
-}
-
-void GameEngine::destroy(){}
 
 void GameEngine::run(){
     const int FPS = 60;
@@ -112,7 +102,5 @@ void GameEngine::run(){
             dt = (float) (frameDelay - frameTime) / 10;
         }
     }
-
-    destroy();
 }
 

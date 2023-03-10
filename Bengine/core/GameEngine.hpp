@@ -2,6 +2,7 @@
 #define GAMEENGINE_H
 #include <iostream>
 #include <SDL2/SDL.h>
+#include "CollisionManager.hpp"
 
 class GameEngine{
     public:
@@ -17,14 +18,14 @@ class GameEngine{
         void display();
         virtual void draw();
         virtual void update();
-        virtual void destroy();
 
         void run();
 
     protected:
-        SDL_Renderer *renderer;
+        //SDL_Renderer *renderer;
 
     private:
+        CollisionManager *cm;
         bool isRunning;
         SDL_Window *window;
 

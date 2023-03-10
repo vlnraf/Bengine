@@ -6,30 +6,42 @@
 #include "BoxCollider2d.hpp"
 #include "SDL_render.h"
 
-enum class hit{
-    None,
-    Top,
-    Middle,
-    Bottom
+enum class spriteType{
+    Text,
+    Rect,
+};
+
+struct Sprite{
+    uint8_t red;
+    uint8_t green;
+    uint8_t blue;
+    uint8_t alpha;
 };
 
 class GameObject {
     public:
 
-        GameObject(SDL_Renderer* rend,std::string texture, int x, int y, int width, int height);
+        GameObject(const int x, const int y, const int width, const int height);
         virtual ~GameObject();
 
         virtual void updateObject(float dt);
+        void addSprite(const std::string pathSprite);
+        void addRectSprite(const uint8_t r, const uint8_t g, const uint8_t b, const uint8_t a);
         virtual void drawObject();
-        virtual void addCollider(std::string name);
+        virtual void addCollider(const std::string name);
 
     protected:
     std::string tag;
+    spriteType type;
+    Sprite sprite;
+
     BoxCollider2D *c; 
     CollisionManager *cm;
+
     float xpos, ypos, w, h;
+
     SDL_Texture *objTexture;
-    SDL_Renderer *renderer;
     SDL_Rect drect, srect;
+
 };
 #endif
