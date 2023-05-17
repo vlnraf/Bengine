@@ -1,8 +1,6 @@
 ### Pong example
 
-
-https://github.com/vlnraf/Bengine/assets/43886147/ea390744-f88c-4e1e-9362-cd011e605dc2
-
+https://github.com/vlnraf/Bengine/assets/43886147/cd465c8b-6c13-4e2f-bd28-835f82bbe8a5
 
 
 #### TODO:
